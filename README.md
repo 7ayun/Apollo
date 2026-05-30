@@ -1,5 +1,14 @@
 # Apollo
 
+> [!WARNING]
+> **This fork's patched release (v0.4.6-patched-v2) has been removed.**
+>
+> The patched build applied security fixes from Sunshine upstream (GHSA-ph75, GHSA-39hj, GHSA-3hrw, GHSA-6p7j, GHSA-x97g, GHSA-r3rw) and attempted to fix the system tray icon bug on Windows. However, the patched `sunshine.exe` had a persistent issue where the system tray icon would not appear after restarting Apollo (Quit → relaunch), making normal usage impractical.
+>
+> **Root cause:** The current Apollo master branch uses `init_tray_threaded()` with a 10-second timeout/join approach for tray initialization, whereas the original Apollo v0.4.6 and Sunshine both use `thread.detach()`. This causes the tray icon to silently fail on restart.
+>
+> **Recommendation:** Use the official [Apollo v0.4.6 release](https://github.com/ClassicOldSong/Apollo/releases/tag/v0.4.6) directly.
+
 Apollo is a self-hosted desktop stream host for [Artemis(Moonlight Noir)](https://github.com/ClassicOldSong/moonlight-android). Offering low latency, native client resolution, cloud gaming server capabilities with support for AMD, Intel, and Nvidia GPUs for hardware encoding. Software encoding is also available. A web UI is provided to allow configuration and client pairing from your favorite web browser. Pair from the local server or any mobile device.
 
 Major features:
